@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "I:\\Code_company7\\git_dir\\UVCCamera\\3D_draw\\STK_android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "I:\\Code_company7\\git_dir\\UVCCamera\\3D_draw\\Irrlicht_C++\\STK_android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\marky_hung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.3.0.aar\\33432433382b17a98a8f9cd4b347c5bf\\res\\values\\values.xml",
@@ -23,24 +23,7 @@
                     }
                 },
                 {
-                    "source": "I:\\Code_company7\\git_dir\\UVCCamera\\3D_draw\\STK_android\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "19",
-                        "endColumns": "48",
-                        "endOffsets": "63"
-                    },
-                    "to": {
-                        "startLines": "210",
-                        "startColumns": "4",
-                        "startOffsets": "28599",
-                        "endColumns": "48",
-                        "endOffsets": "28643"
-                    }
-                },
-                {
-                    "source": "I:\\Code_company7\\git_dir\\UVCCamera\\3D_draw\\STK_android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "I:\\Code_company7\\git_dir\\UVCCamera\\3D_draw\\Irrlicht_C++\\STK_android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "6,15",
                         "startColumns": "4,4",
@@ -56,6 +39,23 @@
                         "endLines": "222,225",
                         "endColumns": "12,12",
                         "endOffsets": "29357,29517"
+                    }
+                },
+                {
+                    "source": "I:\\Code_company7\\git_dir\\UVCCamera\\3D_draw\\Irrlicht_C++\\STK_android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "19",
+                        "endColumns": "48",
+                        "endOffsets": "63"
+                    },
+                    "to": {
+                        "startLines": "210",
+                        "startColumns": "4",
+                        "startOffsets": "28599",
+                        "endColumns": "48",
+                        "endOffsets": "28643"
                     }
                 }
             ]

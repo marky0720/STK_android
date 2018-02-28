@@ -37,7 +37,7 @@ ENET =enet/callbacks.cpp enet/host.cpp enet/list.cpp enet/packet.cpp enet/peer.c
    
 LOCAL_MODULE := irrlicht  
 ##add by marky
-LOCAL_MODULE_FILENAME := libirr         
+#LOCAL_MODULE_FILENAME := libirrlicht        
                     
 #LOCAL_ARM_MODE   := arm 
 LOCAL_CFLAGS := -O3 -DANDROID_NDK -DDISABLE_IMPORTGL -I./../include/ -I./include/ 
@@ -76,7 +76,7 @@ IRR = importgl.cpp app-android.cpp android-activity.cpp android-receiver.cpp
  
 	
 LOCAL_MODULE := irr
-LOCAL_MODULE_FILENAME := libirr    
+#LOCAL_MODULE_FILENAME := libirr    
 
 #LOCAL_ARM_MODE   := arm 
 LOCAL_CFLAGS := -O3 -DANDROID_NDK -DDISABLE_IMPORTGL -I./../include/ -I./include/
