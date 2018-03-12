@@ -124,7 +124,7 @@ void cmdLineHelp (char* invocation)
 }   // cmdLineHelp
 
 //=============================================================================
-/** For base options that don't need much to be inited (and, in some cases, 
+/** For base options that don't need much to be inited (and, in some cases,
  *  that need to be read before initing stuff) - it only assumes that
  *  user config is loaded (necessary to check for blacklisted screen
  *  resolutions), but nothing else (esp. not kart_properties_manager and
@@ -168,10 +168,10 @@ int handleCmdLinePreliminary(int argc, char **argv)
             std::ostringstream o;
             o << UserConfigParams::m_width << "x" << UserConfigParams::m_height;
             std::string res = o.str();
-            if (std::find(UserConfigParams::m_blacklist_res.begin(), 
-                          UserConfigParams::m_blacklist_res.end(),res) == UserConfigParams::m_blacklist_res.end())         
+            if (std::find(UserConfigParams::m_blacklist_res.begin(),
+                          UserConfigParams::m_blacklist_res.end(),res) == UserConfigParams::m_blacklist_res.end())
                 UserConfigParams::m_fullscreen = true;
-            else 
+            else
                 fprintf ( stdout, "Resolution %s has been blacklisted, so it is not available!\n", res.c_str());
         }
         else if ( !strcmp(argv[i], "--windowed") || !strcmp(argv[i], "-w"))
@@ -195,7 +195,7 @@ int handleCmdLinePreliminary(int argc, char **argv)
                 std::ostringstream o;
                 o << width << "x" << height;
                 std::string res = o.str();
-                if (!UserConfigParams::m_fullscreen || std::find(UserConfigParams::m_blacklist_res.begin(), 
+                if (!UserConfigParams::m_fullscreen || std::find(UserConfigParams::m_blacklist_res.begin(),
                                                             UserConfigParams::m_blacklist_res.end(),res) == UserConfigParams::m_blacklist_res.end())
                 {
                     UserConfigParams::m_prev_width = UserConfigParams::m_width = width;
@@ -267,17 +267,17 @@ int handleCmdLine(int argc, char **argv)
         }
         else if(!strcmp(argv[i], "--kartsize-debug"))
         {
-            for(unsigned int i=0; i<kart_properties_manager->getNumberOfKarts(); 
+            for(unsigned int i=0; i<kart_properties_manager->getNumberOfKarts();
                 i++)
             {
                 const KartProperties *km = kart_properties_manager->getKartById(i);
                  printf("%s:\t%swidth: %f length: %f height: %f mesh-buffer count %d\n",
                        km->getIdent().c_str(),
                        (km->getIdent().size()<7) ? "\t" : "",
-                       km->getMasterKartModel().getWidth(), 
-                       km->getMasterKartModel().getLength(), 
+                       km->getMasterKartModel().getWidth(),
+                       km->getMasterKartModel().getLength(),
                        km->getMasterKartModel().getHeight(),
-                       km->getMasterKartModel().getModel()->getMeshBufferCount());  
+                       km->getMasterKartModel().getModel()->getMeshBufferCount());
             }
         }
         else if(!strcmp(argv[i], "--check-debug"))
@@ -308,7 +308,7 @@ int handleCmdLine(int argc, char **argv)
             if(filename!="")
             {
                 UserConfigParams::m_default_kart = argv[i+1];
-                
+
                 // if a player was added with -N, change its kart. Otherwise, nothing to do,
                 // kart choice will be picked up upon player creation.
                 if (StateManager::get()->activePlayerCount() > 0)
@@ -349,7 +349,7 @@ int handleCmdLine(int argc, char **argv)
                 race_manager->setTrack(argv[i+1]);
                 fprintf ( stdout, "You choose to start in track: %s.\n", argv[i+1] ) ;
             }
-            else 
+            else
             {
                 fprintf(stdout, "Track %s has not been unlocked yet. \n", argv[i+1]);
                 fprintf(stdout, "Use --list-tracks to list available tracks.\n\n");
@@ -391,7 +391,7 @@ int handleCmdLine(int argc, char **argv)
                               track->getIdent().c_str(),
                               track->getName().c_str());
                 }
-            }    
+            }
 
             fprintf ( stdout, "Use --track N to choose track.\n\n");
         }
@@ -453,7 +453,7 @@ int handleCmdLine(int argc, char **argv)
             UserConfigParams::m_log_errors=true;
         } else if( sscanf(argv[i], "--profile=%d",  &n)==1)
         {
-            if(n<0) 
+            if(n<0)
             {
                 printf("Profiling %d laps\n",-n);
                 ProfileWorld::setProfileModeLaps(-n);
@@ -521,7 +521,7 @@ int handleCmdLine(int argc, char **argv)
     }   // for i <argc
     if(ProfileWorld::isProfileMode())
     {
-        UserConfigParams::m_sfx = false;  // Disable sound effects 
+        UserConfigParams::m_sfx = false;  // Disable sound effects
         UserConfigParams::m_music = false;// and music when profiling
     }
 
@@ -559,7 +559,7 @@ void initRest()
      device = irr_driver->getDevice();
     video::IVideoDriver* driver = device->getVideoDriver();
     GUIEngine::init(device, driver, StateManager::get());
-    
+
     DBG_LINE;
 
     music_manager           = new MusicManager();DBG_LINE;
@@ -621,7 +621,7 @@ void cleanTuxKart()
     if(highscore_manager)       delete highscore_manager;
     if(attachment_manager)      delete attachment_manager;
     if(item_manager)            delete item_manager;
-    if(powerup_manager)         delete powerup_manager;   
+    if(powerup_manager)         delete powerup_manager;
     if(projectile_manager)      delete projectile_manager;
     if(kart_properties_manager) delete kart_properties_manager;
     if(stk_config)              delete stk_config;
@@ -654,7 +654,7 @@ int stk_main(int argc, char *argv[] )
         handleCmdLinePreliminary(argc, argv);
         DBG_LINE;
         initRest();
-			
+
         DBG_LINE;
 
         if (UserConfigParams::m_log_errors) //Enable logging of stdout and stderr to logfile
@@ -676,23 +676,23 @@ int stk_main(int argc, char *argv[] )
         }
         DBG_LINE;
         input_manager = new InputManager ();
-        
+
         // Get into menu mode initially.
-        input_manager->setMode(InputManager::MENU);  
+        input_manager->setMode(InputManager::MENU);
         DBG_LINE;
         main_loop = new MainLoop();
         material_manager        -> loadMaterial    ();
 
-		//¼ÓÔØÍ¼Æ¬ ±ÜÃâºÚÆÁÄ»,ÎÞÁÄ
+		//ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»,ï¿½ï¿½ï¿½ï¿½
         GUIEngine::addLoadingIcon( irr_driver->getTexture(file_manager->getGUIDir() + "/options_video.png") );
         kart_properties_manager -> loadAllKarts    ();
         unlock_manager          = new UnlockManager();
-		//¼ÓÔØÍ¼Æ¬ ±ÜÃâºÚÆÁÄ»,ÎÞÁÄ
+		//ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»,ï¿½ï¿½ï¿½ï¿½
         GUIEngine::addLoadingIcon( irr_driver->getTexture(file_manager->getTextureFile("gui_lock.png")) );
         projectile_manager      -> loadData        ();
         DBG_LINE;
         // Both item_manager and powerup_manager load models and therefore
-        // textures from the model directory. To avoid reading the 
+        // textures from the model directory. To avoid reading the
         // materials.xml twice, we do this here once for both:
         file_manager->pushTextureSearchPath(file_manager->getModelFile(""));
         const std::string materials_file = file_manager->getModelFile("materials.xml");
@@ -706,14 +706,14 @@ int stk_main(int argc, char *argv[] )
         if(materials_file!="")
             material_manager->popTempMaterial();
         DBG_LINE;
-		//¼ÓÔØÍ¼Æ¬ ±ÜÃâºÚÆÁÄ»,ÎÞÁÄ
+		//ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»,ï¿½ï¿½ï¿½ï¿½
         GUIEngine::addLoadingIcon( irr_driver->getTexture(file_manager->getGUIDir() + "/gift.png") );
         DBG_LINE;
         file_manager->popTextureSearchPath();
         DBG_LINE;
         attachment_manager      -> loadModels      ();
         DBG_LINE;
-		//¼ÓÔØÍ¼Æ¬ ±ÜÃâºÚÆÁÄ»,ÎÞÁÄ
+		//ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»,ï¿½ï¿½ï¿½ï¿½
         GUIEngine::addLoadingIcon( irr_driver->getTexture(file_manager->getGUIDir() + "/banana.png") );
         DBG_LINE;
         //handleCmdLine() needs InitTuxkart() so it can't be called first
@@ -727,7 +727,7 @@ int stk_main(int argc, char *argv[] )
         {
             StateManager::get()->pushScreen(MainMenuScreen::getInstance());
         }
-        else 
+        else
         {
         	 DBG_LINE;
             InputDevice *device;
@@ -736,10 +736,10 @@ int stk_main(int argc, char *argv[] )
             device = input_manager->getDeviceList()->getKeyboard(0);
 
             // Create player and associate player with keyboard
-			//´´½¨Íæ¼Ò²¢¹ØÁªÍæ¼Òµ½¼üÅÌ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½
             StateManager::get()->createActivePlayer( UserConfigParams::m_all_players.get(0), device );
 
-            ALOGV("´´½¨Íæ¼Ò²¢¹ØÁªÍæ¼Òµ½¼üÅÌ");
+            ALOGV("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½");
             // Set up race manager appropriately
             race_manager->setNumLocalPlayers(1);
             race_manager->setLocalKartInfo(0, UserConfigParams::m_default_kart);

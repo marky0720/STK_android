@@ -40,7 +40,7 @@ LOCAL_MODULE := irrlicht
 #LOCAL_MODULE_FILENAME := libirrlicht        
                     
 #LOCAL_ARM_MODE   := arm 
-LOCAL_CFLAGS := -O3 -DANDROID_NDK -DDISABLE_IMPORTGL -I./../include/ -I./include/ 
+LOCAL_CFLAGS := -O3 -D_IRR_COMPILE_WITH_ANDROID_DEVICE_ -DANDROID_NDK -DDISABLE_IMPORTGL
 
 #LOCAL_CPPFLAGS += -fexceptions
 				 
@@ -79,7 +79,7 @@ LOCAL_MODULE := irr
 #LOCAL_MODULE_FILENAME := libirr    
 
 #LOCAL_ARM_MODE   := arm 
-LOCAL_CFLAGS := -O3 -DANDROID_NDK -DDISABLE_IMPORTGL -I./../include/ -I./include/
+LOCAL_CFLAGS := -O3 -D_IRR_COMPILE_WITH_ANDROID_DEVICE_ -DANDROID_NDK -DDISABLE_IMPORTGL
 LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH) \
 	$(LOCAL_PATH)/../include \
@@ -363,8 +363,10 @@ LOCAL_SRC_FILES := 	 $(IRR) \
      
 LOCAL_LDLIBS := -lGLESv1_CM -ldl -llog -lGLESv2 
  
-LOCAL_STATIC_LIBRARIES := irrlicht
+LOCAL_STATIC_LIBRARIES := irrlicht \
+android_native_app_glue
 #LOCAL_STATIC_LIBRARIES += irr   
 
 include $(BUILD_SHARED_LIBRARY)
+$(call import-module,android/native_app_glue)
  
